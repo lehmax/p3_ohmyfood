@@ -1,0 +1,10 @@
+.badge {
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 hsl(0deg 0% 0% / 15%);
+  font-weight: 500;
+
+  &-green {
+    background-color: $green;
+    color: $green-dark;
+  }
+}

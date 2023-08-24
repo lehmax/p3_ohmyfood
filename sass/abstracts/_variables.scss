@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Font Families
+$text-font: "Roboto", "Helvetica", sans-serif;
+$brand-font: "Shrikhand", $text-font;
+
+// Font sizes
+$px40-rem: 2.5rem;
+$px28-rem: 1.75rem;
+$px24-rem: 1.5rem;
+$px18-rem: 1.125rem;
+$px17-rem: 1.0625rem;
+$px16-rem: 1rem;
+$px15-rem: 0.9375rem;
+$px14-rem: 0.875rem;
+$default-font-size: $px16-rem;
+$title-1-font-size: $px28-rem;
+$title-2-font-size: $px24-rem;
+$title-3-font-size: $px18-rem;
+$title-4-font-size: $default-font-size;
+
+// Colors
+$purple: hsl(267deg 66% 60%);
+$pink: hsl(317deg 100% 74%);
+$black: hsl(0deg 0% 0%);
+$black2: hsl(0deg 0% 6%);
+$grey: hsl(0deg 0% 21%);
+$grey2: hsl(0deg 0% 92%);
+$grey3: hsl(0deg 0% 96%);
+$white: hsl(0deg 0% 100%);
+$grey4: hsl(0deg 0% 49%);
+$green: hsl(165deg 56% 74%);
+$green-dark: hsl(165deg 100% 26%);
+$blue: hsl(207deg 92% 76%);
+$blue-dark: hsl(207deg 100% 20%);
+$primary-color: $purple;
+$secondary-color: $pink;
+$tertiary-color: $green;
+$background-color: $grey3;
+
+// Gradient
+$button-gradient: linear-gradient(to top, $primary-color, $secondary-color);
+
+// Widths
+$medium-breakpoint: 767.98px;
+$large-breakpoint: 1024px;
+$max-width: 1080px;
+
+// Paths
+$asset-path: "../";
+$font-path: $asset-path + "fonts/";
+$icon-path: $asset-path + "images/icons/";
+
+// Icons
+$icons: "mobile" 0.9375rem 1.3125rem, "back" 1.125rem 1rem, "fork" 0.6875rem 0.8125rem,
+  "like" 1.375rem 1.3125rem, "list" 1rem 1.0625rem, "check" 1.3125rem 1.3125rem,
+  "hands" 0.75rem 0.8125rem, "pin" 0.75rem 1.0625rem, "store" 1.125rem 1.1875rem;

@@ -1,0 +1,14 @@
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  @each $name, $width, $height in $icons {
+    &-#{$name} {
+      background-image: url($icon-path + $name + ".svg");
+      width: $width;
+      height: $height;
+    }
+  }
+}

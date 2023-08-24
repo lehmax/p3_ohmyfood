@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 89px 13px;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 hsl(0deg 0% 0% / 15%);
+  box-sizing: border-box;
+}

@@ -4,7 +4,7 @@
 ### 🪴 Avant de démarrer cette étape, je dois avoir :
 
 - [x] Suivi les parties 1 et 2 du cours “Gérez votre code avec Git et GitHub”.
-- [ ] Suivi le cours "Simplifiez-vous le CSS avec SASS” si vous souhaitez utiliser
+- [x] Suivi le cours "Simplifiez-vous le CSS avec SASS” si vous souhaitez utiliser
 SASS.
 
 ### 🎯 Une fois cette étape terminée, je dois avoir :
@@ -22,8 +22,8 @@ SASS.
 nom du projet.
 - [x] Initialisez le projet avec Git, et publiez le repo sur GitHub.
 - [ ] Créez les différents fichiers nécessaires pour le projet.
-- [ ] Publiez le site sur GitHub Pages.
-- [ ] Si vous utilisez SASS, pensez à mettre en place une architecture 7:1 pour
+- [x] Publiez le site sur GitHub Pages.
+- [x] Si vous utilisez SASS, pensez à mettre en place une architecture 7:1 pour
 garder de bonnes pratiques de développement.
 
 ### 🚨 Points de vigilance :

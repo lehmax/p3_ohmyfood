@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations
+// -----------------------------------------------------------------------------
+@include font-face("Roboto", $font-path + "roboto/Roboto-Light", 300);
+@include font-face("Roboto", $font-path + "roboto/Roboto-LightItalic", 300, italic);
+@include font-face("Roboto", $font-path + "roboto/Roboto-Regular");
+@include font-face("Roboto", $font-path + "roboto/Roboto-Italic", 400, italic);
+@include font-face("Roboto", $font-path + "roboto/Roboto-Medium", 500);
+@include font-face("Roboto", $font-path + "roboto/Roboto-MediumItalic", 500, italic);
+@include font-face("Roboto", $font-path + "roboto/Roboto-Bold", 700);
+@include font-face("Roboto", $font-path + "roboto/Roboto-BoldItalic", 700, italic);
+@include font-face("Shrikhand", $font-path + "shrikhand/Shrikhand-Regular");
