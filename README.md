@@ -1,4 +1,4 @@
-# ![logo](./images/logo/ohmyfood@2x.svg)
+# ![logo](./assets/logo/ohmyfood@2x.svg)
 
 > Ohmyfood is an online meal ordering company. Our concept enables users to compose their own menu and reduce their waiting time in restaurants, because their menu is prepared in advance. No more time wasted consulting the the menu!
 
@@ -9,6 +9,6 @@
 
 🛠️ [Brief](/doc/brief.pdf)
 
-![Mockup](./images/mockups.png)
+![Mockup](./assets/images/mockups.png)
 
 
