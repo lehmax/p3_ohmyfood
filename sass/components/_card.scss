@@ -1,17 +1,6 @@
-.card-list {
-  display: grid;
-  gap: 1.125rem;
-
-  @media (min-width: $medium-breakpoint) {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 6.25rem;
-    row-gap: 3.125rem;
-  }
-}
-
 .card {
   position: relative;
-  border-radius: 20px 20px 0 0;
+  border-radius: 1.25rem 1.25rem 0 0;
   filter: drop-shadow(var(--card-shadow));
   box-sizing: border-box;
   background-color: $white;
@@ -35,9 +24,11 @@
 
   .card-content {
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    padding: 1.25rem;
+    padding: 0.9375rem;
     margin-bottom: 0.3125rem;
+    box-sizing: border-box;
   }
 
   .card-title {
@@ -49,5 +40,32 @@
   .card-subtitle {
     font-size: $px17-rem;
     font-weight: 300;
+  }
+
+  .card-price {
+    font-size: $px15-rem;
+    color: $grey;
+    font-weight: 700;
+    align-self: flex-end;
+  }
+
+  .card-select {
+    width: 0;
+    border: 0;
+    padding: 0;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.2s ease-in-out;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+
+  &:hover {
+    .card-select {
+      width: 3.6875rem;
+      flex-shrink: 0;
+    }
   }
 }

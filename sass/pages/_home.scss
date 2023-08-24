@@ -1,53 +1,65 @@
-// -----------------------------------------------------------------------------
-// This file contains styles that are specific to the home page.
-// -----------------------------------------------------------------------------
-
-.location {
-  background-color: $grey2;
-  display: flex;
-  height: 3.125rem;
-  align-items: center;
-  justify-content: center;
-  color: $grey;
-  gap: 1.0625rem;
-
-  .location-name {
-    font-weight: 500;
-    color: $grey;
+.home {
+  body {
+    background-color: $grey3;
   }
-}
 
-.booking > * {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
+  .location {
+    background-color: $grey2;
+    display: flex;
+    height: 3.125rem;
+    align-items: center;
+    justify-content: center;
+    color: $grey;
+    gap: 1.0625rem;
 
-  .booking-title {
-    margin: 0;
-
-    @media (min-width: $medium-breakpoint) {
-      font-size: $px40-rem;
+    .location-name {
+      font-weight: 500;
+      color: $grey;
     }
   }
 
-  .booking-subtitle {
-    font-size: $px18-rem;
-    font-weight: 300;
-    color: $grey;
-    margin: 0;
-    padding: 0;
+  .booking > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+
+    .booking-title {
+      margin: 0;
+
+      @media (min-width: $medium-breakpoint) {
+        font-size: $px40-rem;
+      }
+    }
+
+    .booking-subtitle {
+      font-size: $px18-rem;
+      font-weight: 300;
+      color: $grey;
+      margin: 0;
+      padding: 0;
+    }
+
+    .booking-cta {
+      margin-top: 1rem;
+    }
   }
 
-  .booking-cta {
-    margin-top: 1rem;
+  .functionning {
+    background-color: $white;
   }
-}
 
-.functionning {
-  background-color: $white;
-}
+  .restaurants {
+    .card-list {
+      display: grid;
+      gap: 1.125rem;
 
-.restaurants {
+      @media (min-width: $medium-breakpoint) {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 6.25rem;
+        row-gap: 3.125rem;
+      }
+    }
+  }
 }

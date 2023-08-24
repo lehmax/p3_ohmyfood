@@ -1,0 +1,108 @@
+.restaurant {
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    font-size: $px28-rem;
+
+    .txt {
+      font-size: $title-1-font-size;
+      font-family: $brand-font;
+      color: $black2;
+    }
+  }
+
+  .banner {
+    height: 17.1875rem;
+  }
+
+  .menu {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    top: -2.5625rem;
+    flex-direction: column;
+    gap: 2.5rem;
+    border-radius: 2.5rem 2.5rem 0 0;
+    padding: 1.9375rem 1.25rem;
+    background-color: $grey3;
+    box-sizing: border-box;
+  }
+
+  .menu-section {
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+
+      &::after {
+        content: " ";
+        display: block;
+        margin-top: 0.5rem;
+        background-color: $green;
+        height: 0.1875rem;
+        width: 2.5rem;
+      }
+    }
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.25rem 0.9375rem 0 hsl(0deg 0% 0% / 10%);
+
+    .card-subtitle {
+      font-size: $px15-rem;
+    }
+
+    .card-content {
+      margin-bottom: 0;
+    }
+
+    .card-select {
+      opacity: 0;
+      width: 0;
+      border: 0;
+      padding: 0;
+      background-color: $green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      box-sizing: border-box;
+      border-radius: 0 0.9375rem 0.9375rem 0;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      .card-select {
+        width: 3.6875rem;
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (min-width: $medium-breakpoint) {
+    .title {
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .banner {
+      height: 23.9375rem;
+    }
+
+    .menu {
+      padding: calc(1.9375rem * 2) 1.25rem;
+    }
+  }
+}

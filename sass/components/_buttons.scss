@@ -1,4 +1,5 @@
 .button {
+  display: block;
   color: $white;
   font-weight: 500;
   font-size: 1rem;
@@ -6,18 +7,20 @@
   transition: background-image 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: 0;
   border-radius: 1.5625rem;
+  margin: 0 auto;
   padding: 0.81rem 1.17rem;
-  box-shadow: 0 4px 10px 0 hsl(0deg 0% 0% / 25%);
+  box-shadow: 0 0.25rem 0.625rem 0 hsl(0deg 0% 0% / 25%);
+  min-width: 11.25rem;
 
   &:hover,
   &:active {
     background-image: linear-gradient(to top, rgb($white, 0.15), rgb($white, 0.15)),
       $button-gradient;
-    box-shadow: 0 4px 15px 0 hsl(0deg 0% 0% / 35%);
+    box-shadow: 0 0.25rem 0.9375rem 0 hsl(0deg 0% 0% / 35%);
   }
 }
 
 .like-button {
   border: 0;
-  background: 0;
+  background-color: transparent;
 }

@@ -38,15 +38,14 @@ $blue-dark: hsl(207deg 100% 20%);
 $primary-color: $purple;
 $secondary-color: $pink;
 $tertiary-color: $green;
-$background-color: $grey3;
 
 // Gradient
 $button-gradient: linear-gradient(to top, $primary-color, $secondary-color);
 
 // Widths
-$medium-breakpoint: 767.98px;
-$large-breakpoint: 1024px;
-$max-width: 1080px;
+$medium-breakpoint: 47.9988rem;
+$large-breakpoint: 64rem;
+$max-width: 67.5rem;
 
 // Paths
 $asset-path: "../";
