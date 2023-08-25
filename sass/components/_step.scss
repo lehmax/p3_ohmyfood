@@ -1,0 +1,40 @@
+.step-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  row-gap: 1.5625rem;
+
+  @media (min-width: $medium-breakpoint) {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2.5rem;
+  }
+}
+
+.step {
+  display: flex;
+  position: relative;
+  align-items: center;
+  column-gap: 0.625rem;
+  padding: 1.5625rem 2.1875rem;
+  border-radius: 1.25rem;
+  background: $grey3;
+  box-shadow: 0 4px 15px 0 hsl(0deg 0% 0% / 15%);
+  counter-increment: step;
+  margin-left: calc(1.5rem / 2);
+
+  &::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    color: $white;
+    background-color: $primary-color;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: $px14-rem;
+  }
+}
