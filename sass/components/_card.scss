@@ -1,9 +1,9 @@
 .card {
   position: relative;
-  border-radius: 1.25rem 1.25rem 0 0;
-  filter: drop-shadow(var(--card-shadow));
+  box-shadow: 0 4px 8px 0 hsl(0deg 0% 0% / 10%);
   box-sizing: border-box;
   background-color: $white;
+  border-radius: 20px;
 
   img {
     border-radius: 20px 20px 0 0;
@@ -80,6 +80,10 @@
     .card-select {
       width: 3.6875rem;
       opacity: 1;
+
+      .icon-check {
+        animation: rotate 0.8s ease-out forwards 1;
+      }
     }
   }
 }

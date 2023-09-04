@@ -12,3 +12,8 @@
   position: absolute;
   inset: 0;
 }
+
+@mixin default-position-relative {
+  position: relative;
+  z-index: 0;
+}

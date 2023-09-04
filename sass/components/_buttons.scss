@@ -36,7 +36,8 @@
 .like-button {
   border: 0;
   background-color: transparent;
-  position: relative;
+
+  @include default-position-relative;
 
   .icon-like {
     position: relative;
