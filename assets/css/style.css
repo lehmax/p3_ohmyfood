@@ -154,6 +154,53 @@ img {
   height: 1.1875rem;
 }
 
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  97% {
+    opacity: 0.7;
+    transform: translateX(-0.2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rotate {
+  0% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
 .header {
   display: flex;
   justify-content: center;
@@ -230,12 +277,13 @@ img {
 }
 
 .button {
+  position: relative;
+  z-index: 1;
   display: block;
   color: hsl(0, 0%, 100%);
   font-weight: 500;
   font-size: 1rem;
   background-image: linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
-  transition: background-image 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: 0;
   border-radius: 1.5625rem;
   margin: 0 auto;
@@ -243,15 +291,26 @@ img {
   box-shadow: 0 0.25rem 0.625rem 0 hsla(0, 0%, 0%, 0.25);
   min-width: 11.25rem;
 }
-.button:hover, .button:active {
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5625rem;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
   box-shadow: 0 0.25rem 0.9375rem 0 hsla(0, 0%, 0%, 0.35);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+}
+.button:hover::after, .button.active::after, .button:active::after {
+  opacity: 1;
 }
 
 .like-button {
   border: 0;
   background-color: transparent;
   position: relative;
+  z-index: 0;
 }
 .like-button .icon-like {
   position: relative;
@@ -268,10 +327,10 @@ img {
   background-image: linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
   opacity: 0;
   transform: scale(0);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform-origin: center 60%;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  transform-origin: center bottom;
 }
-.like-button:hover .icon-like::before, .like-button.active .icon-like::before {
+.like-button:hover .icon-like::before, .like-button:active .icon-like::before, .like-button.active .icon-like::before {
   transform: scale(1.2);
   opacity: 1;
 }
@@ -288,10 +347,10 @@ img {
 
 .card {
   position: relative;
-  border-radius: 1.25rem 1.25rem 0 0;
-  filter: drop-shadow(var(--card-shadow));
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.1);
   box-sizing: border-box;
   background-color: hsl(0, 0%, 100%);
+  border-radius: 20px;
 }
 .card img {
   border-radius: 20px 20px 0 0;
@@ -316,6 +375,16 @@ img {
   padding: 0.9375rem;
   margin-bottom: 0.3125rem;
   box-sizing: border-box;
+  overflow: hidden;
+}
+.card .card-txt {
+  max-width: 85%;
+}
+.card .card-txt > * {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .card .card-title {
   font-size: 1.125rem;
@@ -333,6 +402,7 @@ img {
   align-self: flex-end;
 }
 .card .card-select {
+  opacity: 0;
   width: 0;
   border: 0;
   padding: 0;
@@ -340,13 +410,21 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: width 0.1s ease-in-out;
+  transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
   box-sizing: border-box;
-  border-radius: 0;
-}
-.card:hover .card-select {
-  width: 3.6875rem;
+  border-radius: 0 0.9375rem 0.9375rem 0;
   flex-shrink: 0;
+}
+.card .card-select:focus {
+  width: 3.6875rem;
+  opacity: 1;
+}
+.card:focus .card-select, .card.active .card-select, .card:active .card-select, .card:hover .card-select {
+  width: 3.6875rem;
+  opacity: 1;
+}
+.card:focus .card-select .icon-check, .card.active .card-select .icon-check, .card:active .card-select .icon-check, .card:hover .card-select .icon-check {
+  animation: rotate 0.8s ease-out forwards 1;
 }
 
 .step-list {
@@ -390,6 +468,61 @@ img {
   justify-content: center;
   border-radius: 50%;
   font-size: 0.875rem;
+}
+
+body:has(.loader-overlay) {
+  position: relative;
+  z-index: 0;
+}
+
+@supports not selector(body:has(.loader-overlay)) {
+  body {
+    position: relative;
+    z-index: 0;
+  }
+}
+.loader-overlay {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  animation: fade-out 0.6s 2.5s forwards ease-in 1;
+}
+
+.loader {
+  opacity: 1;
+  position: fixed;
+  top: calc(50vh - 5vw);
+}
+
+.loader-ripple {
+  border-radius: 50%;
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+}
+.loader-ripple::before, .loader-ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  border: 4px solid hsl(267, 66%, 60%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  animation: ripple 1s ease-out infinite;
+}
+.loader-ripple::after {
+  animation-delay: -0.4s;
 }
 
 .home body {
@@ -475,6 +608,7 @@ img {
   padding: 1.9375rem 1.25rem;
   background-color: hsl(0, 0%, 96%);
   box-sizing: border-box;
+  overflow: hidden;
 }
 .restaurant .menu-section h2 {
   font-size: 1rem;
@@ -482,7 +616,7 @@ img {
   text-transform: uppercase;
 }
 .restaurant .menu-section h2::after {
-  content: " ";
+  content: "";
   display: block;
   margin-top: 0.5rem;
   background-color: hsl(165, 56%, 74%);
@@ -499,31 +633,44 @@ img {
   display: flex;
   justify-content: space-between;
   border-radius: 0.9375rem;
-  box-shadow: 0 0.25rem 0.9375rem 0 hsla(0, 0%, 0%, 0.1);
+  transform: translateX(110%);
+  animation: slide-in-from-right 2s 3.5s ease-in-out forwards 1;
+}
+.restaurant .card-1 {
+  animation-delay: 2.2s;
+}
+.restaurant .card-2 {
+  animation-delay: 2.4s;
+}
+.restaurant .card-3 {
+  animation-delay: 2.6s;
+}
+.restaurant .card-4 {
+  animation-delay: 2.8s;
+}
+.restaurant .card-5 {
+  animation-delay: 3s;
+}
+.restaurant .card-6 {
+  animation-delay: 3.2s;
+}
+.restaurant .card-7 {
+  animation-delay: 3.4s;
+}
+.restaurant .card-8 {
+  animation-delay: 3.6s;
+}
+.restaurant .card-9 {
+  animation-delay: 3.8s;
+}
+.restaurant .card-10 {
+  animation-delay: 4s;
 }
 .restaurant .card .card-subtitle {
   font-size: 0.9375rem;
 }
 .restaurant .card .card-content {
   margin-bottom: 0;
-}
-.restaurant .card .card-select {
-  opacity: 0;
-  width: 0;
-  border: 0;
-  padding: 0;
-  background-color: hsl(165, 56%, 74%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  box-sizing: border-box;
-  border-radius: 0 0.9375rem 0.9375rem 0;
-  flex-shrink: 0;
-}
-.restaurant .card:hover .card-select {
-  width: 3.6875rem;
-  opacity: 1;
 }
 @media (min-width: 47.9988rem) {
   .restaurant .title {

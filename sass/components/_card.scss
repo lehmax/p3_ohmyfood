@@ -1,9 +1,9 @@
 .card {
   position: relative;
-  border-radius: 1.25rem 1.25rem 0 0;
-  filter: drop-shadow(var(--card-shadow));
+  box-shadow: 0 4px 8px 0 hsl(0deg 0% 0% / 10%);
   box-sizing: border-box;
   background-color: $white;
+  border-radius: 20px;
 
   img {
     border-radius: 20px 20px 0 0;
@@ -29,6 +29,18 @@
     padding: 0.9375rem;
     margin-bottom: 0.3125rem;
     box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .card-txt {
+    max-width: 85%;
+
+    & > * {
+      display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 
   .card-title {
@@ -50,6 +62,7 @@
   }
 
   .card-select {
+    opacity: 0;
     width: 0;
     border: 0;
     padding: 0;
@@ -57,15 +70,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: width 0.1s ease-in-out;
+    transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
     box-sizing: border-box;
-    border-radius: 0;
+    border-radius: 0 0.9375rem 0.9375rem 0;
+    flex-shrink: 0;
+
+    &:focus {
+      width: 3.6875rem;
+      opacity: 1;
+    }
   }
 
+  &:focus,
+  &.active,
+  &:active,
   &:hover {
     .card-select {
       width: 3.6875rem;
-      flex-shrink: 0;
+      opacity: 1;
+
+      .icon-check {
+        animation: rotate 0.8s ease-out forwards 1;
+      }
     }
   }
 }

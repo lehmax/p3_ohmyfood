@@ -56,3 +56,6 @@ $icon-path: $asset-path + "images/icons/";
 $icons: "mobile" 0.9375rem 1.3125rem, "back" 1.125rem 1rem, "fork" 0.6875rem 0.8125rem,
   "like" 1.375rem 1.3125rem, "list" 1rem 1.0625rem, "check" 1.3125rem 1.3125rem,
   "hands" 0.75rem 0.8125rem, "pin" 0.75rem 1.0625rem, "store" 1.125rem 1.1875rem;
+
+// Loading
+$loading-delay: 2.5s;
