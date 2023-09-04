@@ -316,6 +316,16 @@ img {
   padding: 0.9375rem;
   margin-bottom: 0.3125rem;
   box-sizing: border-box;
+  overflow: hidden;
+}
+.card .card-txt {
+  max-width: 85%;
+}
+.card .card-txt > * {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .card .card-title {
   font-size: 1.125rem;
