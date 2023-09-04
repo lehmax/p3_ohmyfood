@@ -1,10 +1,11 @@
 .button {
+  position: relative;
+  z-index: 1;
   display: block;
   color: $white;
   font-weight: 500;
   font-size: 1rem;
   background-image: $button-gradient;
-  transition: background-image 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: 0;
   border-radius: 1.5625rem;
   margin: 0 auto;
@@ -12,11 +13,23 @@
   box-shadow: 0 0.25rem 0.625rem 0 hsl(0deg 0% 0% / 25%);
   min-width: 11.25rem;
 
-  &:hover,
-  &:active {
-    background-image: linear-gradient(to top, rgb($white, 0.15), rgb($white, 0.15)),
-      $button-gradient;
+  &::after {
+    @include pseudo-element;
+
+    border-radius: 1.5625rem;
+    background-image: linear-gradient(to top, rgb($white, 0.15), rgb($white, 0.15));
     box-shadow: 0 0.25rem 0.9375rem 0 hsl(0deg 0% 0% / 35%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover,
+  &.active,
+  &:active {
+    &::after {
+      opacity: 1;
+    }
   }
 }
 
@@ -41,8 +54,8 @@
       background-image: $button-gradient;
       opacity: 0;
       transform: scale(0);
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      transform-origin: center 60%;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+      transform-origin: center bottom;
     }
   }
 

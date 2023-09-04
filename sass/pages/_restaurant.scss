@@ -37,7 +37,7 @@
       text-transform: uppercase;
 
       &::after {
-        content: " ";
+        content: "";
         display: block;
         margin-top: 0.5rem;
         background-color: $green;
@@ -66,28 +66,6 @@
 
     .card-content {
       margin-bottom: 0;
-    }
-
-    .card-select {
-      opacity: 0;
-      width: 0;
-      border: 0;
-      padding: 0;
-      background-color: $green;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
-      box-sizing: border-box;
-      border-radius: 0 0.9375rem 0.9375rem 0;
-      flex-shrink: 0;
-    }
-
-    &:hover {
-      .card-select {
-        width: 3.6875rem;
-        opacity: 1;
-      }
     }
   }
 

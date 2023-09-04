@@ -230,12 +230,13 @@ img {
 }
 
 .button {
+  position: relative;
+  z-index: 1;
   display: block;
   color: hsl(0, 0%, 100%);
   font-weight: 500;
   font-size: 1rem;
   background-image: linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
-  transition: background-image 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: 0;
   border-radius: 1.5625rem;
   margin: 0 auto;
@@ -243,9 +244,19 @@ img {
   box-shadow: 0 0.25rem 0.625rem 0 hsla(0, 0%, 0%, 0.25);
   min-width: 11.25rem;
 }
-.button:hover, .button:active {
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5625rem;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
   box-shadow: 0 0.25rem 0.9375rem 0 hsla(0, 0%, 0%, 0.35);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+}
+.button:hover::after, .button.active::after, .button:active::after {
+  opacity: 1;
 }
 
 .like-button {
@@ -268,8 +279,8 @@ img {
   background-image: linear-gradient(to top, hsl(267, 66%, 60%), hsl(317, 100%, 74%));
   opacity: 0;
   transform: scale(0);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform-origin: center 60%;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  transform-origin: center bottom;
 }
 .like-button:hover .icon-like::before, .like-button.active .icon-like::before {
   transform: scale(1.2);
@@ -343,6 +354,7 @@ img {
   align-self: flex-end;
 }
 .card .card-select {
+  opacity: 0;
   width: 0;
   border: 0;
   padding: 0;
@@ -350,13 +362,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: width 0.1s ease-in-out;
+  transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
   box-sizing: border-box;
-  border-radius: 0;
+  border-radius: 0 0.9375rem 0.9375rem 0;
+  flex-shrink: 0;
 }
 .card:hover .card-select {
   width: 3.6875rem;
-  flex-shrink: 0;
+  opacity: 1;
 }
 
 .step-list {
@@ -492,7 +505,7 @@ img {
   text-transform: uppercase;
 }
 .restaurant .menu-section h2::after {
-  content: " ";
+  content: "";
   display: block;
   margin-top: 0.5rem;
   background-color: hsl(165, 56%, 74%);
@@ -516,24 +529,6 @@ img {
 }
 .restaurant .card .card-content {
   margin-bottom: 0;
-}
-.restaurant .card .card-select {
-  opacity: 0;
-  width: 0;
-  border: 0;
-  padding: 0;
-  background-color: hsl(165, 56%, 74%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  box-sizing: border-box;
-  border-radius: 0 0.9375rem 0.9375rem 0;
-  flex-shrink: 0;
-}
-.restaurant .card:hover .card-select {
-  width: 3.6875rem;
-  opacity: 1;
 }
 @media (min-width: 47.9988rem) {
   .restaurant .title {
