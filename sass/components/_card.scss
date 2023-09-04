@@ -74,8 +74,16 @@
     box-sizing: border-box;
     border-radius: 0 0.9375rem 0.9375rem 0;
     flex-shrink: 0;
+
+    &:focus {
+      width: 3.6875rem;
+      opacity: 1;
+    }
   }
 
+  &:focus,
+  &.active,
+  &:active,
   &:hover {
     .card-select {
       width: 3.6875rem;

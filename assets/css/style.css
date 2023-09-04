@@ -330,7 +330,7 @@ img {
   transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   transform-origin: center bottom;
 }
-.like-button:hover .icon-like::before, .like-button.active .icon-like::before {
+.like-button:hover .icon-like::before, .like-button:active .icon-like::before, .like-button.active .icon-like::before {
   transform: scale(1.2);
   opacity: 1;
 }
@@ -415,11 +415,15 @@ img {
   border-radius: 0 0.9375rem 0.9375rem 0;
   flex-shrink: 0;
 }
-.card:hover .card-select {
+.card .card-select:focus {
   width: 3.6875rem;
   opacity: 1;
 }
-.card:hover .card-select .icon-check {
+.card:focus .card-select, .card.active .card-select, .card:active .card-select, .card:hover .card-select {
+  width: 3.6875rem;
+  opacity: 1;
+}
+.card:focus .card-select .icon-check, .card.active .card-select .icon-check, .card:active .card-select .icon-check, .card:hover .card-select .icon-check {
   animation: rotate 0.8s ease-out forwards 1;
 }
 
