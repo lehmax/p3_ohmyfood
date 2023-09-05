@@ -1,13 +1,3 @@
-body:has(.loader-overlay) {
-  @include default-position-relative;
-}
-
-@supports not selector(body:has(.loader-overlay)) {
-  body {
-    @include default-position-relative;
-  }
-}
-
 .loader-overlay {
   position: absolute;
   z-index: 2;

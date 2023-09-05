@@ -1,6 +1,3 @@
-// -----------------------------------------------------------------------------
-// This file contains all @font-face declarations
-// -----------------------------------------------------------------------------
 @include font-face("Roboto", $font-path + "roboto/Roboto-Light", 300);
 @include font-face("Roboto", $font-path + "roboto/Roboto-LightItalic", 300, italic);
 @include font-face("Roboto", $font-path + "roboto/Roboto-Regular");
