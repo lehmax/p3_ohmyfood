@@ -1,8 +1,4 @@
 .restaurant {
-  $menu-delay: $loading-delay + 1s;
-  $menu-items: 10;
-  $menu-anim-duration: 2s;
-
   .title {
     display: flex;
     align-items: center;
@@ -63,11 +59,15 @@
     display: flex;
     justify-content: space-between;
     border-radius: 0.9375rem;
-    transform: translateX(110%);
-    animation: slide-in-from-right $menu-anim-duration $menu-delay ease-in-out forwards 1;
+
+    $menu-delay: $loading-delay + 0.1s;
+    $menu-items: 10;
+    $menu-anim-duration: 0.8s;
+
+    animation: appear $menu-anim-duration $menu-delay cubic-bezier(0.7, 1.5, 0.5, 0.8) both 1;
 
     @for $i from 1 through $menu-items {
-      $delay: $menu-anim-duration + calc($i * 2 / 10);
+      $delay: $menu-delay + calc($i * 2 / 10);
       &-#{$i} {
         animation-delay: $delay;
       }
