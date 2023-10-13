@@ -29,8 +29,7 @@ a {
 
 img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .container {
@@ -328,8 +327,7 @@ img {
 .like-button .icon-like {
   position: relative;
   overflow: hidden;
-  -webkit-clip-path: url("#heart-clip");
-          clip-path: url("#heart-clip");
+  clip-path: url("#heart-clip");
 }
 .like-button .icon-like::before {
   content: "";
@@ -369,8 +367,7 @@ img {
   border-radius: 20px 20px 0 0;
   width: 100%;
   height: 251px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   padding: 0;
   margin: 0;
 }
@@ -449,8 +446,7 @@ img {
 @media (min-width: 47.9988rem) {
   .step-list {
     grid-template-columns: 1fr 1fr 1fr;
-    -moz-column-gap: 2.5rem;
-         column-gap: 2.5rem;
+    column-gap: 2.5rem;
   }
 }
 
@@ -458,8 +454,7 @@ img {
   display: flex;
   position: relative;
   align-items: center;
-  -moz-column-gap: 0.625rem;
-       column-gap: 0.625rem;
+  column-gap: 0.625rem;
   padding: 1.5625rem 2.1875rem;
   border-radius: 1.25rem;
   background: hsl(0, 0%, 96%);
@@ -581,8 +576,7 @@ img {
 @media (min-width: 47.9988rem) {
   .home .restaurants .card-list {
     grid-template-columns: 1fr 1fr;
-    -moz-column-gap: 6.25rem;
-         column-gap: 6.25rem;
+    column-gap: 6.25rem;
     row-gap: 3.125rem;
   }
 }
@@ -687,4 +681,6 @@ img {
   .restaurant .menu {
     padding: 3.875rem 1.25rem;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
